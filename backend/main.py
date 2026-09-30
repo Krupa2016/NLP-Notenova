@@ -105,7 +105,8 @@ async def upload_pdf(
         "message": "PDF processed successfully",
         "filename": file.filename,
         "pages": len(pages),
-        "chunks": len(all_chunks)
+        "chunks": len(all_chunks),
+        "chunk_details": metadata
     }
 
 
@@ -204,10 +205,23 @@ def flashcards():
         ]
     )
 
-    cards = generate_flashcards(
+    cards_text = generate_flashcards(
         context
     )
 
+    parsed_cards = []
+    current_q = None
+    for line in cards_text.strip().split('\n'):
+        line = line.strip()
+        if line.startswith("Q:"):
+            current_q = line[2:].strip()
+        elif line.startswith("A:") and current_q:
+            parsed_cards.append({
+                "question": current_q,
+                "answer": line[2:].strip()
+            })
+            current_q = None
+
     return {
-        "flashcards": cards
+        "flashcards": parsed_cards
     }

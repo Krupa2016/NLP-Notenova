@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Search,
   Upload,
@@ -9,12 +9,15 @@ import {
   MessageSquare,
   Brain,
   ChevronRight,
+  ChevronLeft,
+  RotateCw,
   X,
   Menu,
   Send,
   Plus,
   CheckCircle2,
   FileUp,
+  Terminal,
 } from "lucide-react";
 
 import "./App.css";
@@ -29,12 +32,15 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-
   const API_URL = "http://127.0.0.1:8000";
 
-const [summary, setSummary] = useState("");
-const [flashcards, setFlashcards] = useState([]);
-const [uploadedFile, setUploadedFile] = useState(null);
+  const [summary, setSummary] = useState("");
+  const [flashcards, setFlashcards] = useState([]);
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const [terminalLogs, setTerminalLogs] = useState([
+    { type: "cmd", text: "semantic-notes init --engine=faiss --chunker=recursive" },
+    { type: "info", text: "Ready. Select a PDF study document to begin ingestion pipeline." },
+  ]);
 const handleGenerateFlashcards = async () => {
   try {
     setLoading(true);
@@ -85,67 +91,79 @@ const handleGenerateSummary = async () => {
     { name: "Flashcards", icon: Layers },
   ];
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (!query.trim()) return;
 
     setLoading(true);
 
-    // Temporary demo result. Replace with API call later.
-    setTimeout(() => {
-      {searchResults.map((result, index) => (
-  <div className="result-card" key={index}>
-    <div className="result-card-header">
-      <h3>{result.filename || "Your Notes"}</h3>
-      <span>Page {result.page}</span>
-    </div>
+    try {
+      const params = new URLSearchParams({ query: query, top_k: 5 });
+      const response = await fetch(`${API_URL}/search?${params}`);
+      
+      if (!response.ok) {
+        throw new Error("Search failed");
+      }
 
-    <p>{result.text}</p>
-
-    {result.score !== undefined && (
-      <span className="result-score">
-        Match: {(result.score * 100).toFixed(1)}%
-      </span>
-    )}
-  </div>
-))}
-    }, 700);
+      const data = await response.json();
+      setSearchResults(data.results || []);
+    } catch (error) {
+      console.error("Search error:", error);
+      alert("Could not perform search.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleUpload = async () => {
-  if (!file) {
-    alert("Please select a PDF first.");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("file", file);
-
-  try {
-    setLoading(true);
-
-    const response = await fetch(`${API_URL}/upload`, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error("PDF upload failed.");
+    if (!file) {
+      setTerminalLogs((prev) => [
+        ...prev,
+        { type: "error", text: "Error: No PDF selected. Please choose a file first." },
+      ]);
+      return;
     }
 
-    const data = await response.json();
+    const formData = new FormData();
+    formData.append("file", file);
 
-    setUploadedFile(data);
+    setTerminalLogs((prev) => [
+      ...prev,
+      { type: "cmd", text: `notenova pipeline --file="${file.name}" --embed` },
+      { type: "info", text: `[1/4] Uploading "${file.name}" (${(file.size / 1024).toFixed(1)} KB)...` },
+    ]);
 
-    alert(
-      `PDF processed successfully!\nPages: ${data.pages}\nChunks: ${data.chunks}`
-    );
-  } catch (error) {
-    console.error("Upload error:", error);
-    alert("Could not upload PDF. Check whether your backend is running.");
-  } finally {
-    setLoading(false);
-  }
-};
+    try {
+      setLoading(true);
+
+      const response = await fetch(`${API_URL}/upload`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`PDF upload failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      setUploadedFile(data);
+
+      setTerminalLogs((prev) => [
+        ...prev,
+        { type: "info", text: `[2/4] PyMuPDF parsed ${data.pages} page(s) successfully.` },
+        { type: "info", text: `[3/4] Text partitioned into ${data.chunks} semantic chunks.` },
+        { type: "info", text: `[4/4] Embeddings indexed in FAISS vector store.` },
+        { type: "success", text: `✔ Ingestion complete: ${data.pages} pages, ${data.chunks} chunks generated!` },
+      ]);
+    } catch (error) {
+      console.error("Upload error:", error);
+      setTerminalLogs((prev) => [
+        ...prev,
+        { type: "error", text: `✖ Ingestion error: ${error.message}. Is your backend running at ${API_URL}?` },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 const handleAsk = async () => {
   if (!question.trim()) {
@@ -217,15 +235,89 @@ const handleAsk = async () => {
               <input
                 type="file"
                 accept=".pdf,application/pdf"
-                onChange={(e) => setFile(e.target.files?.[0] || null)}
+                onChange={(e) => {
+                  const selected = e.target.files?.[0] || null;
+                  setFile(selected);
+                  if (selected) {
+                    setTerminalLogs((prev) => [
+                      ...prev,
+                      { type: "cmd", text: `file --select "${selected.name}" (${(selected.size / 1024).toFixed(1)} KB)` },
+                      { type: "info", text: `Ready to process "${selected.name}". Click "Upload notes" to extract & index.` },
+                    ]);
+                  }
+                }}
                 hidden
               />
             </label>
 
-            <button className="primary-button" onClick={handleUpload}>
-              Upload notes <ChevronRight size={16} />
+            <button className="primary-button" onClick={handleUpload} disabled={loading}>
+              {loading ? "Processing..." : "Upload notes"} <ChevronRight size={16} />
             </button>
           </section>
+
+          {/* Small Terminal-like UI displaying pages, chunks, and ingestion pipeline */}
+          <div className="terminal-window">
+            <div className="terminal-header">
+              <div className="terminal-controls">
+                <span className="terminal-dot terminal-dot-red" />
+                <span className="terminal-dot terminal-dot-yellow" />
+                <span className="terminal-dot terminal-dot-green" />
+              </div>
+              <div className="terminal-title">
+                <Terminal size={13} />
+                <span>notenova@pipeline: ~/pdf-processor.sh</span>
+              </div>
+              <span className={`terminal-badge ${uploadedFile ? "active" : "idle"}`}>
+                {loading ? "PROCESSING" : uploadedFile ? "INDEXED" : "STANDBY"}
+              </span>
+            </div>
+
+            {uploadedFile && (
+              <div className="terminal-stats-bar">
+                <div className="terminal-stat-item">
+                  <span>📄 Pages:</span>
+                  <strong className="terminal-stat-highlight">{uploadedFile.pages}</strong>
+                </div>
+                <div className="terminal-stat-item">
+                  <span>🧩 Chunks:</span>
+                  <strong className="terminal-stat-highlight">{uploadedFile.chunks}</strong>
+                </div>
+                <div className="terminal-stat-item">
+                  <span>📁 File:</span>
+                  <strong>{uploadedFile.filename}</strong>
+                </div>
+                <div className="terminal-stat-item">
+                  <span>⚡ Status:</span>
+                  <strong className="terminal-stat-success">INDEXED & READY</strong>
+                </div>
+              </div>
+            )}
+
+            <div className="terminal-body">
+              {terminalLogs.map((log, idx) => (
+                <div key={idx} className="terminal-line">
+                  <span className="terminal-prompt">&gt;</span>
+                  {log.type === "cmd" && <span className="terminal-text-cmd">{log.text}</span>}
+                  {log.type === "info" && <span className="terminal-text-info">{log.text}</span>}
+                  {log.type === "success" && <span className="terminal-text-success">{log.text}</span>}
+                  {log.type === "error" && <span className="terminal-text-error">{log.text}</span>}
+                </div>
+              ))}
+              {loading && (
+                <div className="terminal-line">
+                  <span className="terminal-prompt">&gt;</span>
+                  <span className="terminal-text-info">Processing embeddings & building FAISS index...</span>
+                  <span className="terminal-cursor" />
+                </div>
+              )}
+              {!loading && (
+                <div className="terminal-line">
+                  <span className="terminal-prompt">$</span>
+                  <span className="terminal-cursor" />
+                </div>
+              )}
+            </div>
+          </div>
 
           <section className="section">
             <div className="section-heading">
@@ -312,17 +404,17 @@ const handleAsk = async () => {
                         MATCH 0{index + 1}
                       </span>
                       <span className="match-score">
-                        {result.score} match
+                        {(result.score * 100).toFixed(1)}% match
                       </span>
                     </div>
 
-                    <h3>{result.title}</h3>
+                    <h3>{result.filename || "Your Notes"}</h3>
                     <p>{result.text}</p>
 
                     <div className="result-footer">
                       <span>
                         <FileText size={14} />
-                        {file?.name || "Sample study notes"}
+                        {result.filename || file?.name || "Sample study notes"}
                       </span>
                       <span>Page {result.page}</span>
                     </div>
@@ -423,14 +515,34 @@ const handleAsk = async () => {
             Manage your uploaded study material in one place.
           </p>
 
-          <div className="notes-empty">
-            <FileText size={32} />
-            <h3>No notes uploaded yet</h3>
-            <p>Your uploaded PDFs will appear here.</p>
-            <button className="primary-button" onClick={() => setActivePage("Search")}>
-              <Plus size={16} /> Upload notes
-            </button>
-          </div>
+          {uploadedFile ? (
+            <div className="uploaded-details">
+              <h3>{uploadedFile.filename}</h3>
+              <p>Pages: {uploadedFile.pages} | Total Chunks: {uploadedFile.chunks}</p>
+              
+              <div className="chunks-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <h4>Generated Chunks (Process Details)</h4>
+                {uploadedFile.chunk_details && uploadedFile.chunk_details.map((chunk, index) => (
+                  <div key={index} className="result-card" style={{ padding: '15px', background: 'var(--surface-color)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <div className="result-card-header" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <span>Chunk {index + 1}</span>
+                      <span>Page {chunk.page}</span>
+                    </div>
+                    <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>{chunk.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="notes-empty">
+              <FileText size={32} />
+              <h3>No notes uploaded yet</h3>
+              <p>Your uploaded PDFs will appear here.</p>
+              <button className="primary-button" onClick={() => setActivePage("Search")}>
+                <Plus size={16} /> Upload notes
+              </button>
+            </div>
+          )}
         </section>
       );
     }
@@ -443,14 +555,18 @@ const handleAsk = async () => {
           <p className="welcome-description">
             Generate revision cards from your uploaded college notes.
           </p>
-          <div className="notes-empty">
-            <Layers size={32} />
-            <h3>Your flashcards will appear here</h3>
-            <p>Upload a PDF to generate your first set of cards.</p>
-            <button className="primary-button" onClick={() => setActivePage("Search")}>
-              Go to upload <ChevronRight size={16} />
-            </button>
-          </div>
+          {flashcards && flashcards.length > 0 ? (
+            <FlashcardDeck flashcards={flashcards} />
+          ) : (
+            <div className="notes-empty">
+              <Layers size={32} />
+              <h3>Your flashcards will appear here</h3>
+              <p>Generate revision cards from your notes.</p>
+              <button className="primary-button" onClick={handleGenerateFlashcards} disabled={loading}>
+                {loading ? "Generating..." : "Generate Flashcards"} <Sparkles size={16} />
+              </button>
+            </div>
+          )}
         </section>
       );
     }
@@ -468,14 +584,16 @@ const handleAsk = async () => {
         <p className="welcome-description">
           Generate concise summaries from your study material.
         </p>
-        <div className="notes-empty">
-          <Brain size={32} />
-          <h3>Ready to summarize</h3>
-          <p>Upload your PDF notes to get started.</p>
-          <button className="primary-button" onClick={() => setActivePage("Search")}>
-            Go to upload <ChevronRight size={16} />
-          </button>
-        </div>
+        {!summary && (
+          <div className="notes-empty">
+            <Brain size={32} />
+            <h3>Ready to summarize</h3>
+            <p>Generate an AI summary of your uploaded notes.</p>
+            <button className="primary-button" onClick={handleGenerateSummary} disabled={loading}>
+              {loading ? "Generating..." : "Generate Summary"} <Sparkles size={16} />
+            </button>
+          </div>
+        )}
       </section>
     );
   };
@@ -585,6 +703,182 @@ function ToolCard({ icon, title, description, onClick }) {
       <p>{description}</p>
       <span className="tool-arrow"><ChevronRight size={17} /></span>
     </button>
+  );
+}
+
+function FlashcardDeck({ flashcards }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const handleNext = (e) => {
+    e?.stopPropagation();
+    setIsFlipped(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % flashcards.length);
+    }, 150);
+  };
+
+  const handlePrev = (e) => {
+    e?.stopPropagation();
+    setIsFlipped(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + flashcards.length) % flashcards.length);
+    }, 150);
+  };
+
+  const handleFlip = (e) => {
+    e?.stopPropagation();
+    setIsFlipped((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+      if (e.key === "ArrowRight") {
+        handleNext();
+      } else if (e.key === "ArrowLeft") {
+        handlePrev();
+      } else if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        setIsFlipped((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [flashcards.length]);
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+  };
+
+  if (!flashcards || flashcards.length === 0) return null;
+
+  const currentCard = flashcards[currentIndex];
+  const progressPercent = ((currentIndex + 1) / flashcards.length) * 100;
+
+  return (
+    <div className="flashcard-wrapper">
+      {/* Top Meta Header: Card counter and sleek progress bar */}
+      <div className="flashcard-meta-header">
+        <div className="flashcard-deck-indicator">
+          <span>CARD</span> {currentIndex + 1} OF {flashcards.length}
+        </div>
+        <div className="flashcard-progress-track">
+          <div
+            className="flashcard-progress-fill"
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+      </div>
+
+      {/* 3D Flip Scene: Rectangular Card UI */}
+      <div
+        className="flashcard-3d-scene"
+        onClick={handleFlip}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <div className={`flashcard-rectangle-card ${isFlipped ? "is-flipped" : ""}`}>
+          {/* Front: Question */}
+          <div className="flashcard-face flashcard-face-front">
+            <div className="flashcard-card-topbar">
+              <span className="flashcard-type-tag flashcard-tag-question">
+                <Sparkles size={11} /> Question
+              </span>
+              <span className="flashcard-flip-hint">
+                <RotateCw size={12} /> Click or space to flip
+              </span>
+            </div>
+
+            <div className="flashcard-card-body">
+              <h3>{currentCard.question}</h3>
+            </div>
+
+            <div className="flashcard-card-footer">
+              <span>NoteSense Active Recall</span>
+              <span>Swipe or click to reveal answer</span>
+            </div>
+          </div>
+
+          {/* Back: Answer */}
+          <div className="flashcard-face flashcard-face-back">
+            <div className="flashcard-card-topbar">
+              <span className="flashcard-type-tag flashcard-tag-answer">
+                <CheckCircle2 size={12} /> Answer
+              </span>
+              <span className="flashcard-flip-hint">
+                <RotateCw size={12} /> Click or space to flip back
+              </span>
+            </div>
+
+            <div className="flashcard-card-body">
+              <p>{currentCard.answer}</p>
+            </div>
+
+            <div className="flashcard-card-footer">
+              <span>Verified from study notes</span>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Controls Bar */}
+      <div className="flashcard-action-bar">
+        <button className="secondary-button" onClick={handlePrev}>
+          <ChevronLeft size={16} /> Prev
+        </button>
+
+        <div className="flashcard-dots-container">
+          {flashcards.map((_, idx) => (
+            <button
+              key={idx}
+              className={`flashcard-index-dot ${idx === currentIndex ? "active" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFlipped(false);
+                setCurrentIndex(idx);
+              }}
+              title={`Card ${idx + 1}`}
+              aria-label={`Go to card ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="flashcard-nav-group">
+          <button className="secondary-button" onClick={handleFlip}>
+            <RotateCw size={14} /> Flip
+          </button>
+          <button className="primary-button" onClick={handleNext}>
+            Next <ChevronRight size={16} />
+          </button>
+        </div>
+      </div>
+
+      <div className="flashcard-key-hints">
+        Use <span className="flashcard-key-badge">←</span> <span className="flashcard-key-badge">→</span> to navigate, <span className="flashcard-key-badge">Space</span> to flip card
+      </div>
+    </div>
   );
 }
 

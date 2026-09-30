@@ -1,47 +1,42 @@
 [
     {
         "page": 1,
-        "text": "MDM- Intelligent Mobile Robotics INITIAL PHASE PROJECT DOCUMENT: INSTRUCTIONS Students are required to prepare an Initial Phase Project Document explaining their project idea, the problem they want to solve, the proposed solution, and how they plan to develop the project. 1.​ Project Title ●​ Mention the title of your project. ●​ The title should be short, clear, and related to your project. 2.​ Project Area ●​ Mention the main area/domain of your project. ●​ Examples: Robotics, IoT, AI, Machine Learning, Web Development, App Development, Networking, Automation, etc. 3.​ Problem Definition ●​ Explain the problem that your project aims to solve.",
-        "filename": "Project Documentation Guidelines.pdf"
+        "text": "Semester B.E. Semester VII – INFT Subject WAS Subject Professor In-charge Prof Rakshad Sood Student Name Chirag Sharma Roll Number 24101C2007 Assignment No 06 Assignment Title Nessus Vulnerability Scanner Description Aim To perform vulnerability assessment on a target system using Nessus Vulnerability Scanner and identify security vulnerabilities, misconfigurations, and potential risks. Procedure Theory Nessus is a vulnerability assessment tool developed by Tenable. It scans systems, networks, and applications to identify known security weaknesses. It checks for: • Missing security patches • Outdated software • Open ports and running services • Weak configurations • Known vulnerabilities (CVEs) • SSL/TLS configuration issues",
+        "filename": "Chirag was exp 06.pdf"
     },
     {
         "page": 1,
-        "text": "Web Development, App Development, Networking, Automation, etc. 3.​ Problem Definition ●​ Explain the problem that your project aims to solve. 4.​ Scope of the Project Explain what you plan to develop as part of the project. Mention: ●​ Main features ●​ Main functions ●​ Target users ●​ Where the project can be used ●​ What the project will cover 5.​ Product Requirements Document (PRD) Prepare a simple PRD explaining what your proposed product/system should do. Include: ●​ Project Objective: What do you want to achieve? ●​ Target Users ●​ Key Features ●​ Functional Requirements ●​ Other Requirements ●​ Use tables",
-        "filename": "Project Documentation Guidelines.pdf"
-    },
-    {
-        "page": 1,
-        "text": "do you want to achieve? ●​ Target Users ●​ Key Features ●​ Functional Requirements ●​ Other Requirements ●​ Use tables wherever required to explain the requirements clearly. 6.​ Hardware Used / Proposed Hardware List the hardware components required for the project. Mention: ●​ Component name ●​ Quantity ●​ Purpose 7.​ Software Used / Proposed Software Mention the software and tools that will be used for the project. Include: ●​ Programming language ●​ Software/platform ●​ Libraries or frameworks ●​ Development tools Use a table wherever required.",
-        "filename": "Project Documentation Guidelines.pdf"
-    },
-    {
-        "page": 1,
-        "text": "Use a table wherever required.",
-        "filename": "Project Documentation Guidelines.pdf"
+        "text": "• Outdated software • Open ports and running services • Weak configurations • Known vulnerabilities (CVEs) • SSL/TLS configuration issues Nessus provides a detailed report containing the vulnerability name, severity, description, and recommended solution. Severity Levels Severity Description Critical Vulnerabilities that may allow severe system compromise High Serious vulnerabilities requiring prompt attention Medium Vulnerabilities with moderate risk Low Minor security weaknesses Informational Useful system or configuration information Requirements",
+        "filename": "Chirag was exp 06.pdf"
     },
     {
         "page": 2,
-        "text": "MDM- Intelligent Mobile Robotics 8.​ Project Development Phase Explain how you plan to develop the project. Include: 9.1 Planning: Explain the basic plan for developing the project. Design ●​ Explain how the system/project will be designed. ●​ Add a block diagram, circuit diagram, system architecture, or other relevant diagram wherever required. 9.2 Proposed Workflow ●​ Explain how the project will work step-by-step. ●​ Add a flowchart wherever required. 9.3 Expected Results Mention what you expect the project to achieve after completion. Explain: ●​ Expected output ●​ Expected functionality ●​ How the project will solve the identified problem Add sample outputs,",
-        "filename": "Project Documentation Guidelines.pdf"
-    },
-    {
-        "page": 2,
-        "text": "completion. Explain: ●​ Expected output ●​ Expected functionality ●​ How the project will solve the identified problem Add sample outputs, reference images, or diagrams wherever required. 9.3 Future Scope Mention how the project can be improved or expanded in the future. Examples: ●​ Adding new features ●​ Improving performance ●​ Adding automation ●​ Using advanced technology ●​ Expanding its applications 9.​ References Mention the sources used while preparing the project. Examples: ●​ Websites ●​ Books ●​ Research papers ●​ Documentation ●​ Tutorials ●​ Datasheets",
-        "filename": "Project Documentation Guidelines.pdf"
-    },
-    {
-        "page": 2,
-        "text": "●​ Tutorials ●​ Datasheets",
-        "filename": "Project Documentation Guidelines.pdf"
+        "text": "• Windows/Linux system • Nessus Essentials installed • Internet connection for activation and plugin updates • A target machine that you own or have permission to scan Procedure Step 1: Install Nessus 1. Download Nessus Essentials from the official Tenable website. 2. Install Nessus according to your operating system. 3. Start the Nessus service. 4. Open the Nessus interface in your browser, usually: https://localhost:8834 5. Complete the initial setup and activate Nessus Essentials using the activation code.",
+        "filename": "Chirag was exp 06.pdf"
     },
     {
         "page": 3,
-        "text": "MDM- Intelligent Mobile Robotics DOCUMENT FORMATTING GUIDELINES The document must follow these formatting rules: 1.​ Font: Times New Roman 2.​ Font Size: 12 3.​ Line Spacing: 1.15 4.​ Text Alignment: Justified 5.​ Numbering: Use proper numbering for sections and sub-sections. 6.​ Tables: Add tables wherever required. 7.​ Images: Add relevant images wherever required. 8.​ Flowcharts: Add flowcharts wherever required to explain the working/process. 9.​ Diagrams: Add block diagrams, circuit diagrams, architecture diagrams, etc., wherever applicable. 10.​Captions: Give proper names/numbers to tables, images, and diagrams. 11.​Content: Keep the information clear, relevant, and related to your project.",
-        "filename": "Project Documentation Guidelines.pdf"
+        "text": "6. Wait for the plugins to download and compile. Step 2: Create a New Scan 1. Log in to the Nessus dashboard. 2. Click New Scan. 3. Select Basic Network Scan. 4. Enter the scan name, for example: EXP 6 - Vulnerability Assessment. 5. Enter the target IP address of your lab machine. 6. Save the scan configuration. Step 3: Configure the Scan 1. Open the Discovery tab and review the port-scanning settings. 2. Keep the default settings for a basic lab scan.",
+        "filename": "Chirag was exp 06.pdf"
     },
     {
         "page": 3,
-        "text": "tables, images, and diagrams. 11.​Content: Keep the information clear, relevant, and related to your project.",
-        "filename": "Project Documentation Guidelines.pdf"
+        "text": "basic lab scan.",
+        "filename": "Chirag was exp 06.pdf"
+    },
+    {
+        "page": 4,
+        "text": "3. If credentials are provided for your lab system, configure them under the Credentials tab for a more detailed authenticated scan. 4. Save the configuration. Step 4: Launch the Scan 1. Click Launch to start the vulnerability scan. 2. Wait for Nessus to complete the scanning process. 3. Open the completed scan from the dashboard. Step 5: Analyze the Results 1. View the vulnerabilities grouped by severity. 2. Select individual vulnerabilities to view their details. 3. Note the following information: o Vulnerability name o Severity o Host affected o Port and service o Description",
+        "filename": "Chirag was exp 06.pdf"
+    },
+    {
+        "page": 4,
+        "text": "o Vulnerability name o Severity o Host affected o Port and service o Description",
+        "filename": "Chirag was exp 06.pdf"
+    },
+    {
+        "page": 5,
+        "text": "o Suggested remediation Conclusion Nessus helps identify vulnerabilities, outdated software, and security misconfigurations in a system. The experiment demonstrated how vulnerability scanning can support security assessment and help administrators prioritize remediation.",
+        "filename": "Chirag was exp 06.pdf"
     }
 ]
