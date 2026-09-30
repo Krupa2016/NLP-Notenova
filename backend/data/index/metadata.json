@@ -1,0 +1,47 @@
+[
+    {
+        "page": 1,
+        "text": "MDM- Intelligent Mobile Robotics INITIAL PHASE PROJECT DOCUMENT: INSTRUCTIONS Students are required to prepare an Initial Phase Project Document explaining their project idea, the problem they want to solve, the proposed solution, and how they plan to develop the project. 1.​ Project Title ●​ Mention the title of your project. ●​ The title should be short, clear, and related to your project. 2.​ Project Area ●​ Mention the main area/domain of your project. ●​ Examples: Robotics, IoT, AI, Machine Learning, Web Development, App Development, Networking, Automation, etc. 3.​ Problem Definition ●​ Explain the problem that your project aims to solve.",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 1,
+        "text": "Web Development, App Development, Networking, Automation, etc. 3.​ Problem Definition ●​ Explain the problem that your project aims to solve. 4.​ Scope of the Project Explain what you plan to develop as part of the project. Mention: ●​ Main features ●​ Main functions ●​ Target users ●​ Where the project can be used ●​ What the project will cover 5.​ Product Requirements Document (PRD) Prepare a simple PRD explaining what your proposed product/system should do. Include: ●​ Project Objective: What do you want to achieve? ●​ Target Users ●​ Key Features ●​ Functional Requirements ●​ Other Requirements ●​ Use tables",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 1,
+        "text": "do you want to achieve? ●​ Target Users ●​ Key Features ●​ Functional Requirements ●​ Other Requirements ●​ Use tables wherever required to explain the requirements clearly. 6.​ Hardware Used / Proposed Hardware List the hardware components required for the project. Mention: ●​ Component name ●​ Quantity ●​ Purpose 7.​ Software Used / Proposed Software Mention the software and tools that will be used for the project. Include: ●​ Programming language ●​ Software/platform ●​ Libraries or frameworks ●​ Development tools Use a table wherever required.",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 1,
+        "text": "Use a table wherever required.",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 2,
+        "text": "MDM- Intelligent Mobile Robotics 8.​ Project Development Phase Explain how you plan to develop the project. Include: 9.1 Planning: Explain the basic plan for developing the project. Design ●​ Explain how the system/project will be designed. ●​ Add a block diagram, circuit diagram, system architecture, or other relevant diagram wherever required. 9.2 Proposed Workflow ●​ Explain how the project will work step-by-step. ●​ Add a flowchart wherever required. 9.3 Expected Results Mention what you expect the project to achieve after completion. Explain: ●​ Expected output ●​ Expected functionality ●​ How the project will solve the identified problem Add sample outputs,",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 2,
+        "text": "completion. Explain: ●​ Expected output ●​ Expected functionality ●​ How the project will solve the identified problem Add sample outputs, reference images, or diagrams wherever required. 9.3 Future Scope Mention how the project can be improved or expanded in the future. Examples: ●​ Adding new features ●​ Improving performance ●​ Adding automation ●​ Using advanced technology ●​ Expanding its applications 9.​ References Mention the sources used while preparing the project. Examples: ●​ Websites ●​ Books ●​ Research papers ●​ Documentation ●​ Tutorials ●​ Datasheets",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 2,
+        "text": "●​ Tutorials ●​ Datasheets",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 3,
+        "text": "MDM- Intelligent Mobile Robotics DOCUMENT FORMATTING GUIDELINES The document must follow these formatting rules: 1.​ Font: Times New Roman 2.​ Font Size: 12 3.​ Line Spacing: 1.15 4.​ Text Alignment: Justified 5.​ Numbering: Use proper numbering for sections and sub-sections. 6.​ Tables: Add tables wherever required. 7.​ Images: Add relevant images wherever required. 8.​ Flowcharts: Add flowcharts wherever required to explain the working/process. 9.​ Diagrams: Add block diagrams, circuit diagrams, architecture diagrams, etc., wherever applicable. 10.​Captions: Give proper names/numbers to tables, images, and diagrams. 11.​Content: Keep the information clear, relevant, and related to your project.",
+        "filename": "Project Documentation Guidelines.pdf"
+    },
+    {
+        "page": 3,
+        "text": "tables, images, and diagrams. 11.​Content: Keep the information clear, relevant, and related to your project.",
+        "filename": "Project Documentation Guidelines.pdf"
+    }
+]
