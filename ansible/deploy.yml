@@ -1,0 +1,70 @@
+---
+- name: Deploy NoteSense E-Learning Platform
+  hosts: all
+  become: false
+  vars:
+    app_dir: "/opt/notesense"
+    backend_image: "{{ backend_image | default('notesense/backend:latest') }}"
+    frontend_image: "{{ frontend_image | default('notesense/frontend:latest') }}"
+    previous_tag_file: "/opt/notesense/.prev_version"
+
+  tasks:
+    - name: Ensure application directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ app_dir }}"
+        - "{{ app_dir }}/data/uploads"
+        - "{{ app_dir }}/data/index"
+
+    - name: Record previous working container version for rollback safety
+      shell: "docker inspect --format='{{ '{{' }} .Config.Image {{ '}}' }}' notesense-backend > {{ previous_tag_file }} 2>/dev/null || true"
+      changed_when: false
+
+    - name: Pull updated backend Docker image
+      docker_image:
+        name: "{{ backend_image }}"
+        source: pull
+      ignore_errors: true
+
+    - name: Deploy NoteSense Backend Container
+      docker_container:
+        name: notesense-backend
+        image: "{{ backend_image }}"
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "8000:8000"
+        volumes:
+          - "{{ app_dir }}/data/uploads:/app/data/uploads"
+          - "{{ app_dir }}/data/index:/app/data/index"
+          - "{{ app_dir }}/data:/app/data"
+        env:
+          JWT_SECRET: "notesense_secret_super_key_change_in_production_2026"
+          JWT_ALGORITHM: "HS256"
+
+    - name: Deploy NoteSense Frontend Container
+      docker_container:
+        name: notesense-frontend
+        image: "{{ frontend_image }}"
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "3000:80"
+
+    - name: Verify Backend Service Health Endpoint
+      uri:
+        url: "http://localhost:8000/health"
+        method: GET
+        status_code: 200
+        return_content: yes
+      register: health_result
+      until: health_result.status == 200
+      retries: 6
+      delay: 5
+
+    - name: Report Deployment Status
+      debug:
+        msg: "NoteSense deployment verified: {{ health_result.json.app }} v{{ health_result.json.version }} is healthy!"

@@ -1,42 +1,617 @@
 [
     {
         "page": 1,
-        "text": "Semester B.E. Semester VII – INFT Subject WAS Subject Professor In-charge Prof Rakshad Sood Student Name Chirag Sharma Roll Number 24101C2007 Assignment No 06 Assignment Title Nessus Vulnerability Scanner Description Aim To perform vulnerability assessment on a target system using Nessus Vulnerability Scanner and identify security vulnerabilities, misconfigurations, and potential risks. Procedure Theory Nessus is a vulnerability assessment tool developed by Tenable. It scans systems, networks, and applications to identify known security weaknesses. It checks for: • Missing security patches • Outdated software • Open ports and running services • Weak configurations • Known vulnerabilities (CVEs) • SSL/TLS configuration issues",
-        "filename": "Chirag was exp 06.pdf"
-    },
-    {
-        "page": 1,
-        "text": "• Outdated software • Open ports and running services • Weak configurations • Known vulnerabilities (CVEs) • SSL/TLS configuration issues Nessus provides a detailed report containing the vulnerability name, severity, description, and recommended solution. Severity Levels Severity Description Critical Vulnerabilities that may allow severe system compromise High Serious vulnerabilities requiring prompt attention Medium Vulnerabilities with moderate risk Low Minor security weaknesses Informational Useful system or configuration information Requirements",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "Module-2 Word Level Analysis Prepared By Prof. Suja Jayachandran Reference : 1.Speech and Language Processing by Daniel Jurafsky,James and Martin",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 2,
-        "text": "• Windows/Linux system • Nessus Essentials installed • Internet connection for activation and plugin updates • A target machine that you own or have permission to scan Procedure Step 1: Install Nessus 1. Download Nessus Essentials from the official Tenable website. 2. Install Nessus according to your operating system. 3. Start the Nessus service. 4. Open the Nessus interface in your browser, usually: https://localhost:8834 5. Complete the initial setup and activate Nessus Essentials using the activation code.",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "Word: Fundamental building block of any language . Also called orthographic tokens(ie separated by white space). Exception Chinese, and Japanese languages are not separated by white space. Morphology:deals with syntax of complex words and parts of word called morphemes as well as what semantic property they convey.",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 3,
-        "text": "6. Wait for the plugins to download and compile. Step 2: Create a New Scan 1. Log in to the Nessus dashboard. 2. Click New Scan. 3. Select Basic Network Scan. 4. Enter the scan name, for example: EXP 6 - Vulnerability Assessment. 5. Enter the target IP address of your lab machine. 6. Save the scan configuration. Step 3: Configure the Scan 1. Open the Discovery tab and review the port-scanning settings. 2. Keep the default settings for a basic lab scan.",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "• Tokenization: Tokenization is the process of tokenizing or splitting a string, or text into a list of tokens. One can think of tokens as parts like a word is a token in a sentence, and a sentence is a token in a paragraph. It is important because the meaning of the text can be interpreted through analysis of the words present in the text. Token: Non-unique words of a sentence Type: Unique words of a sentence. • Stopword Removal: Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 3,
-        "text": "basic lab scan.",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply to remove the words that occur commonly across all the documents in the corpus. Typically, articles and pronouns are generally classified as stop words. These words have no significance in some of the NLP tasks like information retrieval and classification.",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 4,
-        "text": "3. If credentials are provided for your lab system, configure them under the Credentials tab for a more detailed authenticated scan. 4. Save the configuration. Step 4: Launch the Scan 1. Click Launch to start the vulnerability scan. 2. Wait for Nessus to complete the scanning process. 3. Open the completed scan from the dashboard. Step 5: Analyze the Results 1. View the vulnerabilities grouped by severity. 2. Select individual vulnerabilities to view their details. 3. Note the following information: o Vulnerability name o Severity o Host affected o Port and service o Description",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "• Normalization is the process of converting a token into its base form. • It helps in : Reducing the number of unique tokens present in the text. Reducing variation of words in the text. Removing redundant information. • Stemming: It is an elementary rule-based process for removing inflectional forms from a token and output are the stem/root of the word. • Eg: “Laughing”, “Laughed” , “Laughs” , “Laugh” will all become “laugh” • It can produce words that are not part of the dictionary. Eg: “His teams are not winning”. After stemming: “Hi”, “team”, “are”, “not”, “winn”",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 4,
-        "text": "o Vulnerability name o Severity o Host affected o Port and service o Description",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "not part of the dictionary. Eg: “His teams are not winning”. After stemming: “Hi”, “team”, “are”, “not”, “winn”",
+        "filename": "Morphological Analysis.pdf"
     },
     {
         "page": 5,
-        "text": "o Suggested remediation Conclusion Nessus helps identify vulnerabilities, outdated software, and security misconfigurations in a system. The experiment demonstrated how vulnerability scanning can support security assessment and help administrators prioritize remediation.",
-        "filename": "Chirag was exp 06.pdf"
+        "text": "• Lemmatization: It is a systematic step-by-step process for removing inflection forms of a word. • It makes use of vocabulary, word structure, part of speech tags, and grammar relation. • Output of lemmatization is the root word called a lemma. • E.g. “Running”, ”Run”, and “Ran” will be Run.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 6,
+        "text": "Types of Stemming Algorithm • 1. Porter Stemmer – PorterStemmer() • Martin Porter invented the Porter Stemmer or Porter algorithm in 1980. Five steps of word reduction are used in the method, each with its own set of mapping rules. Porter Stemmer is the original stemmer and is renowned for its ease of use and rapidity. Frequently, the resultant stem is a shorter word with the same root meaning. • PorterStemmer() is a module in NLTK that implements the Porter Stemming technique. • 2. Snowball Stemmer – SnowballStemmer() • Martin Porter also created Snowball Stemmer. The method utilized in this",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 6,
+        "text": "Stemming technique. • 2. Snowball Stemmer – SnowballStemmer() • Martin Porter also created Snowball Stemmer. The method utilized in this instance is more precise and is referred to as “English Stemmer” or “Porter2 Stemmer.” It is somewhat faster and more logical than the original Porter Stemmer. • SnowballStemmer() is a module in NLTK that implements the Snowball stemming technique. • 3. Lancaster Stemmer – LancasterStemmer() • Lancaster Stemmer is straightforward, although it often produces results with excessive stemming. Over-stemming renders stems non-linguistic or meaningless. • LancasterStemmer() is a module in NLTK that implements the Lancaster stemming technique. • 4. Regexp",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 6,
+        "text": "stems non-linguistic or meaningless. • LancasterStemmer() is a module in NLTK that implements the Lancaster stemming technique. • 4. Regexp Stemmer – RegexpStemmer() • Regex stemmer identifies morphological affixes using regular expressions. Substrings matching the regular expressions will be discarded. • RegexpStemmer() is a module in NLTK that implements the Regex stemming technique.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 7,
+        "text": "• Regular Expression • A regular expression (RE) is a language for specifying text search strings. RE helps us to match or find other strings or sets of strings, using a specialized syntax held in a pattern. • Regular expression search requires a pattern that we want to search for, and a corpus of texts to search through. • A regular expression search CORPUS function will search through the corpus returning all texts that contain the pattern • Properties of Regular Expressions American Mathematician Stephen Cole Kleene formalized the Regular Expression language. RE is a formula in a special language,",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 7,
+        "text": "Regular Expressions American Mathematician Stephen Cole Kleene formalized the Regular Expression language. RE is a formula in a special language, which can be used for specifying simple classes of strings, a sequence of symbols. In other words, we can say that RE is an algebraic notation for characterizing a set of strings. Regular expression requires two things, one is the pattern that we wish to search and other is a corpus of text from which we need to search.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 8,
+        "text": "Searching for a particular word",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 9,
+        "text": "• Searching a number",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 10,
+        "text": "• Searching passages with number",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 11,
+        "text": "• Named entity recognition",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 12,
+        "text": "RE:Build an FSA that modeled the subpart of English dealing with amounts of money. Such a formal language would model the subset of English consisting of phrases like ten cents, three dollars, one dollar thirty-five cents and so on",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 13,
+        "text": "Porter’s Algorithm • Porter (1980) algorithm we define a consonant as a letter other than A, E, I, O, and U, and other than Y preceded by a consonant. Any other letter is a vowel. (This is of course just an orthographic approximation.) • Let c denote a consonant and v denote a vowel. C will stand for a string of one or more consonants, and V for a string of one or more vowels. • Any written English word or word part can be represented by the following regular expression (where the parentheses () are used to mark optional",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 13,
+        "text": "or word part can be represented by the following regular expression (where the parentheses () are used to mark optional elements): (C)(VC) m (V ) • For example the word troubles maps to the following sequence: troubles C V C VC with no final V. We call the Kleene operator m the measure of any word or word part; the measure correlates very roughly with the number of syllables in the word or word part.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 14,
+        "text": "• Steps:",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 16,
+        "text": "Morphological Parsing",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 17,
+        "text": "• Morphology-to understand how a word is formed • Morphological Parsing-It is used to find morphemes form a word. • Morphemes contain Stem(Root word) and Affix(Prefix(e.g. reform),infix(e.g. passersby) and suffix(e.g. nationalist). • Morphological Parser decides the order of words: Lexicons-Stem,affix,part of speech(noun,adjective,verb) Morphotactics:decides which morphemes should come based on rules. Orthographic rules: lady+s=ladys(wrong) lady+ies=ladies(true)",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 18,
+        "text": "• Types of Morphemes: 1. Free Morphemes: Independent word having its own meaning(e.g. camera) a) Lexical Morphemes:Adjective/Noun/Verb/Picture word(e.g. Yellow) b) Grammatical Morphemes:Conjunction(e.g. and, or) 2. Bound Morphemes: No meaning of its own.(E.g. –ing (running)) a) Inflectional Morphemes:Words when combined with free morphemes it will not change the part of speech.IT will be always added as suffix. Example: cat + s=cats b) Derivational Morphemes:Words when combined with free morphemes it will change the part of speech. Example: danger+ ous= dangerous 3. Allomorphes: antonym Happy x unhappy Rational x irrational Possible x impossible",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 18,
+        "text": "Allomorphes: antonym Happy x unhappy Rational x irrational Possible x impossible",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 19,
+        "text": "• Finite State Morphological Parsing",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 21,
+        "text": "Morphological Parsing with Finite-State Transducers(Pg 102 Jurafsky ebook) • Two-level morphology, first proposed by Koskenniemi (1983). • Two level morphology represents a word as a correspondence between a lexical level, which represents a simple concatenation of morphemes making up a word, and the surface level, which represents the actual spelling of the final word. • Morphological parsing is implemented by building mapping rules that map letter sequences like cats on the surface level into morpheme and features sequences like cat +N +PL on the lexical level. Figure shows these two levels for the word cats. Note that the lexical level",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 21,
+        "text": "+N +PL on the lexical level. Figure shows these two levels for the word cats. Note that the lexical level has the stem for a word, followed by the morphological information +N +PL which tells us that cats is a plural noun.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 22,
+        "text": "• The automaton that we use for performing the mapping between these two levels is the finite-state transducer or FST. • A transducer maps between FST one set of symbols and another; a finite-state transducer does this via a finite automaton. • Thus we usually visualize an FST as a two-tape automaton which recognizes or generates pairs of strings. • The FST thus has a more general function than an FSA; where an FSA defines a formal language by defining a set of strings, an FST defines a relation between sets of strings. This relates to another view of an",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 22,
+        "text": "a set of strings, an FST defines a relation between sets of strings. This relates to another view of an FST; as a machine that reads one string and generates another",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 23,
+        "text": "That is, c maps to itself, as do a and t, while the morphological feature +N (recall that this means ‘noun’) maps to nothing (ε), and the feature +PL (meaning ‘plural’) maps to ˆs. The symbol ˆ indicates a morpheme boundary, while the symbol # indicates a word boundary.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 24,
+        "text": "Orthographic Rules and Finite-State Transducers",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 25,
+        "text": "Language Model • Language modeling is the way of determining the probability of any sequence of words. Language modeling is used in a wide variety of applications such as Speech Recognition, Spam filtering, etc. • An N-gram language model predicts the probability of a given N-gram within any sequence of words in the language. A good N-gram model can predict the next word in the sentence i.e the value of p(w|h). • Two types of Language Modelings: • Statistical Language Modelings: Statistical Language Modeling, or Language Modeling, is the development of probabilistic models that are able to predict the next",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 25,
+        "text": "Modelings: Statistical Language Modeling, or Language Modeling, is the development of probabilistic models that are able to predict the next word in the sequence given the words that precede. Examples such as N-gram language modeling. • Neural Language Modelings: Neural network methods are achieving better results than classical methods both on standalone language models and when models are incorporated into larger models on challenging tasks like speech recognition and machine translation. A way of performing a neural language model is through word embeddings.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 25,
+        "text": "through word embeddings.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 26,
+        "text": "• N-gram • N-gram can be defined as the contiguous sequence of n items from a given sample of text or speech. The items can be letters, words, or base pairs according to the application. The N-grams typically are collected from a text or speech corpus (A long text dataset). • N-gram Language Model: • An N-gram language model predicts the probability of a given N-gram within any sequence of words in the language. A good N-gram model can predict the next word in the sentence i.e the value of p(w|h) • Example of N-gram such as unigram (“This”, “article”,",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 26,
+        "text": "the next word in the sentence i.e the value of p(w|h) • Example of N-gram such as unigram (“This”, “article”, “is”, “on”, “NLP”) or bi-gram (‘This article’, ‘article is’, ‘is on’,’on NLP’) • Perplexity: Perplexity is a measure of how good a probability distribution predicts a sample. It can be understood as a measure of uncertainty. • Perplexity=P(S) raise to (-1/n)",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 27,
+        "text": "• Maximum Likelihood Estimate: It is the method of estimating the parameter of an assumed probability distribution,given some observed data.It is the value that makes the observed data the “most probable”. P(Wi|Wi-1)=Count(Wi-1,Wi)/Count(Wi-1) • Laplace Smoothening:Also called Add one smoothening.It is a smoothening technique that helps to tackle the problem of zero probability of a word in the text.When a particular bigram never occurred in our corpus data,then we get probability zero for that word.And when probability of any word is zero the overall effect is zero,which waste the contribution of other words.To avoid this we can use Laplace smoothening.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 27,
+        "text": "zero the overall effect is zero,which waste the contribution of other words.To avoid this we can use Laplace smoothening.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "page": 28,
+        "text": "• Practicenumerical based on N-gram model.",
+        "filename": "Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 1,
+        "text": "Foundations of R Software Lecture 36 Strings – Display and Formatting ::: Print and Format with Concatenate Shalabh Department of Mathematics and Statistics Indian Institute of Technology Kanpur 1 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 2,
+        "text": "Formatting and Display of Strings 2 Suppose we want to print The zero occurs at 2*pi radians. NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 3,
+        "text": "Formatting and Display of Strings 3 The print function has a significant limitation that it prints only one object at a time. Trying to print multiple items gives error message: > print(\"The zero occurs at\", 2*pi, \"radians.\") Error in print.default(\"The zero occurs at\", 2 * pi, \"radians.\") : invalid 'quote' argument NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 4,
+        "text": "Formatting and Display of Strings 4 The only way to print multiple items is to print them one at a time > print(\"The zero occurs at\"); print(2*pi); print(\"radians\") [1] \"The zero occurs at\" [1] 6.283185 [1] \"radians\" The cat function is an alternative to print that lets you combine multiple items into a continuous output. NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 5,
+        "text": "• The function cat() concatenate (link in the same sequence) and print the arguments in strings, concatenates them and prints the entire string in the command window. • cat is useful for producing output in user‐defined functions. • It converts its arguments to character vectors, link them together in the same sequence to a single character vector, appends the given sep = string(s) to each element and then outputs them. 5 Formatting and Display of Strings : cat function NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 6,
+        "text": "Usage cat(... ) cat(... , file = \"\", sep = \" \", fill = FALSE, labels = NULL, append = FALSE) cat puts a space between each item by default. One must provide a newline character (\\n) (newline) to terminate the line. 6 Formatting and Display of Strings : cat function NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "fill : a logical or (positive) numeric controlling how the output is broken into successive lines. If FALSE (default), only newlines created explicitly by \"\\n\" are printed. Otherwise, the output is broken into lines with print width equal to the option width if fill is TRUE, or the value of fill if this is numeric. Non‐positive fill values are ignored, with a warning. labels : character vector of labels for the lines printed. Ignored if fill is FALSE. append : logical. Only used if the argument file is the name of file. If TRUE output will be appended to file;",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "logical. Only used if the argument file is the name of file. If TRUE output will be appended to file; otherwise, it will overwrite the contents of file. 7 Formatting and Display of Strings : cat function NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 8,
+        "text": "Formatting and Display of Strings: print vs cat 8 The only way to print multiple items is to print them one at a time > print(\"The zero occurs at\"); print(2*pi); print(\"radians\") [1] \"The zero occurs at\" [1] 6.283185 [1] \"radians\" The cat function is an alternative to print that lets you combine multiple items into a continuous output: > cat(\"The zero occurs at\", 2*pi, \"radians.\", \"\\n\") The zero occurs at 6.283185 radians. NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 9,
+        "text": "Formatting and Display of Strings 9 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 10,
+        "text": "> d = date() > cat(\"Today’s date is:\", d, \"\\n\" ) Today’s date is: Wed Dec 01 22:52:48 2021 [Please note this is the time at the time or preparation of slide] 10 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 11,
+        "text": "> x = 1:10 > x [1] 1 2 3 4 5 6 7 8 9 10 > cat(x, sep =\" ++ \") 1 ++ 2 ++ 3 ++ 4 ++ 5 ++ 6 ++ 7 ++ 8 ++ 9 ++ 10 > cat(\"\\n\") # This is used to change the line > cat(x, sep =\" / \") 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 10 11 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 11,
+        "text": "Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 12,
+        "text": "12 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 13,
+        "text": "> x = 7 > cat(\"The square of\", x, \"is\", x^2, \"!\\n\") The square of 7 is 49 ! 13 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 14,
+        "text": "> cat(\"The square root of\",x,\"is approximately\", format(sqrt(x),digits=3),\"\\n\") The square root of 7 is approximately 2.65 14 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 15,
+        "text": "The cat function can also print simple vectors > evenno = c(2,4,6,8,10) > evenno [1] 2 4 6 8 10 > cat(\"The first few even numbers are:\", evenno, \"...\\n\") The first few even numbers are: 2 4 6 8 10 ... 15 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 16,
+        "text": "> x = 1:10 > x [1] 1 2 3 4 5 6 7 8 9 10 > cat(x, fill = 2, labels = paste(\"(\", letters[1:10], \"):\")) ( a ): 1 ( b ): 2 ( c ): 3 ( d ): 4 ( e ): 5 ( f ): 6 ( g ): 7 ( h ): 8 ( i ): 9 ( j ): 10 16 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 17,
+        "text": "Foundations of R Software Lecture 37 Strings – Display and Formatting ::: Paste Function Shalabh Department of Mathematics and Statistics Indian Institute of Technology Kanpur 1 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 18,
+        "text": "• The paste() function concatenates several strings together. • It creates a new string by joining the given strings end to end. • The result of paste()can be assigned to a variable (in contrast to the function cat()). 2 Formatting and Display of Strings: paste NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 19,
+        "text": "Usage paste (..., sep = \" \", collapse = NULL). collapse is an optional character string to separate the results. • The parameter sep is a string that serves as a separation between the strings that are given as input. • paste inserts a single space between pairs of strings. • A desired line break can be achieved with \"\\n\" (newline). 3 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 20,
+        "text": "• paste converts its arguments to character strings (via as.character) , and concatenates them (separating them by the string given by sep). • If the arguments are vectors, they are concatenated term‐by‐term to give a character vector result. • If a value is specified for collapse, the values in the result are then concatenated into a single string, with the elements being separated by the value of collapse. 4 Formatting and Display of Strings: paste NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 21,
+        "text": "• The paste() function concatenates several strings together. • It creates a new string by joining the given strings end to end. • The result of paste()can be assigned to a variable (in contrast to the function cat()). paste0(..., collapse) is equivalent to paste(..., sep = \"\", collapse), slightly more efficiently. 5 Formatting and Display of Strings: paste NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 22,
+        "text": "Example: paste converts its arguments to character strings (via as.character) , and concatenates them > paste(1:12) [1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" > as.character(1:12) #Alternative to paste [1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" \"11\" \"12\" 6 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 23,
+        "text": "> paste(\"Everybody\", \"loves\", \"R Programming.\") [1] \"Everybody loves R Programming.\" > paste(\"Everybody\", \"loves\", \"R Programming.\", sep=\"*\") [1] \"Everybody*loves*R Programming.\" > paste(\"Everybody\", \"loves\", \"R Programming.\", sep=\"===\") [1] \"Everybody===loves===R Programming.\" 7 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 24,
+        "text": "8 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 25,
+        "text": "If one or more arguments are vectors of strings, paste will generate all combinations of the arguments: > names = c(\"Prof. Singh\", \"Mr. Venkat\", \"Dr. Jha\") > names [1] \"Prof. Singh\" \"Mr. Venkat\" \"Dr. Jha\" > paste(names, \"is\", \"a good\", \"person.\") [1] \"Prof. Singh is a good person.\" \"Mr. Venkat is a good person.\" \"Dr. Jha is a good person.\" 9 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 26,
+        "text": "When we want to join even those combinations into one, big string. The collapse parameter defines a top‐level separator and instructs paste to concatenate the generated strings using that separator: > names = c(\"Prof. Singh\", \"Mr. Venkat\", \"Dr. Jha\") > paste(names, \"is\", \"a good\", \"person.\", collapse=\", and \") [1] \"Prof. Singh is a good person., and Mr. Venkat is a good person., and Dr. Jha is a good person.\" 10 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 27,
+        "text": "11 Formatting and Display of Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 28,
+        "text": "Operations with Strings Example: > paste(1, \" is first\", 2, \" is second\", 3, \" is third\", sep = \"#\") [1] \"1# is first#2# is second#3# is third\" Observe the role of blank space inside double quotes > paste(1, \" is first \", 2, \" is second \", 3, \" is third \", sep = \"#\") [1] \"1# is first #2# is second #3# is third \" 12 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 29,
+        "text": "Operations with Strings Example: > x = paste(\"Ex\", 1:5, sep=\"_\") >x [1] \"Ex_1\" \"Ex_2\" \"Ex_3\" \"Ex_4\" \"Ex_5\" > x[1] [1] \"Ex_1\" > x[2] [1] \"Ex_2\" > x[3] [1] \"Ex_3\" > x[5] [1] \"Ex_5\" 13 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 30,
+        "text": "Operations with Strings x is a vector of strings. If we use the parameter collapse, a single string, instead of a vector of strings, is created: > x = paste(\"Ex\", 1:5, sep=\"_\", collapse=\"\") > x[1] [1] \"Ex_1Ex_2Ex_3Ex_4Ex_5\" 14 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 31,
+        "text": "Operations with Strings 15 Note the difference between x = paste(\"Ex\", 1:5, sep=\"_\") > x [1] \"Ex_1\" \"Ex_2\" \"Ex_3\" \"Ex_4\" \"Ex_5\" and x = paste(\"Ex\", 1:5, sep=\"_\", collapse=\"\") > x [1] \"Ex_1Ex_2Ex_3Ex_4Ex_5\" NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 32,
+        "text": "Operations with Strings 16 When using a single vector, paste0 and paste have the same outcome and they work the same as.character. > paste0(1:10) [1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" > paste(1:10) [1] \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\" \"10\" NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 33,
+        "text": "Operations with Strings 17 When we use more than one vectors to paste0 then they concatenate in a vectorized way. > paste0(1:10, c(\"st\", \"nd\", \"rd\", rep(\"th\", 7))) [1] \"1st\" \"2nd\" \"3rd\" \"4th\" \"5th\" \"6th\" \"7th\" \"8th\" \"9th\" \"10th\" Observe the role of blank space > paste(1:10, c(\"st\", \"nd\", \"rd\", rep(\"th\", 7))) [1] \"1 st\" \"2 nd\" \"3 rd\" \"4 th\" \"5 th\" \"6 th\" \"7 th\" \"8 th\" \"9 th\" \"10 th\" NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 34,
+        "text": "Foundations of R Software Lecture 38 Strings – Display and Formatting ::: String Splitting Shalabh Department of Mathematics and Statistics Indian Institute of Technology Kanpur 1 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 35,
+        "text": "Command strsplit, split the elements of a character vector. \"Split\" can be a single character, or a character string: Usage strsplit(x, split, fixed = FALSE, …) Arguments x character vector, each element of which is to be split. split character vector containing regular expression(s) (unless fixed = TRUE) to use for splitting. fixed logical. If TRUE match split exactly, otherwise use regular expressions. 2 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 36,
+        "text": "With a command strsplit, we can split a string in pieces. > x = \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > x [1] \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > strsplit(x, split=\"!\") [[1]] [1] \"The&\" \"syntax&\" \"of&\" [4] \"paste&\" \"is\" \"&available\" [7] \" &inthe online-help\" 3 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 37,
+        "text": "4 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 38,
+        "text": "> x = \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > x [1] \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > strsplit(x, split = \"&!\") [[1]] [1] \"The\" [2] \"syntax\" [3] \"of\" [4] \"paste\" [5] \"is!&available! &inthe online-help\" 5 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 39,
+        "text": "6 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 40,
+        "text": "> x = \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > x [1] \"The&!syntax&!of&!paste&!is!&available! &inthe online-help\" > y = strsplit(x, split = \"!&\") > y [[1]] [1] \"The&!syntax&!of&!paste&!is\" \"available! &inthe online-help\" 7 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 41,
+        "text": "Notice the access to single components: > y[[1]][1] [1] \"The&!syntax&!of&!paste&!is\" > y[[1]][2] [1] \"available! &inthe online-help\" > y[[1]][3] [1] NA 8 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 42,
+        "text": "9 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 43,
+        "text": "Example: Convert to matrix > dates = c(\"2020-07-24\", \"2021-08-25\", \"2022- 09-26\", \"2023-10-27\") Split the dates > datesplt = strsplit(dates, \"-\") > datesplt [[1]] [1] \"2020\" \"07\" \"24\" [[2]] [1] \"2021\" \"08\" \"25\" [[3]] [1] \"2022\" \"09\" \"26\" [[4]] [1] \"2023\" \"10\" \"27\" 10 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 44,
+        "text": "Example: Convert to matrix Create matrix of dates and outcome is that the elements are character > datemat = matrix(unlist(datesplt), nrow = 4, ncol=3, byrow=TRUE) > datemat [,1] [,2] [,3] [1,] \"2020\" \"07\" \"24\" [2,] \"2021\" \"08\" \"25\" [3,] \"2022\" \"09\" \"26\" [4,] \"2023\" \"10\" \"27\" 11 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 45,
+        "text": "Example: Convert to matrix Create matrix of dates and outcome is that the elements are numbers > datematrix = matrix(as.numeric(unlist(datesplt)), nrow = 4, ncol=3, byrow=TRUE) > datematrix [,1] [,2] [,3] [1,] 2020 7 24 [2,] 2021 8 25 [3,] 2022 9 26 [4,] 2023 10 27 12 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 46,
+        "text": "Example: Convert to matrix 13 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 47,
+        "text": "> strsplit(\"Shalabh\",split=\"\") [[1]] [1] \"S\" \"h\" \"a\" \"l\" \"a\" \"b\" \"h\" 14 Operations with Strings NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 48,
+        "text": "Foundations of R Software Lecture 39 Strings – Display and Formatting ::: Manipulations with Strings and Alphabets Shalabh Department of Mathematics and Statistics Indian Institute of Technology Kanpur 1 NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 49,
+        "text": "nchar takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of x. nzchar is a fast way to find out if elements of a character vector are non‐empty strings. 2 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 50,
+        "text": "Usage nchar(x, type = \"chars\", allowNA = FALSE, keepNA = NA) nzchar(x, keepNA = FALSE) Arguments x character vector, or a vector to be coerced to a character vector. type character string: partial matching to one of c(\"bytes\", \"chars\", \"width\"). keepNA logical: should NA be returned when x is NA? 3 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 51,
+        "text": "There are a variety of commands that can be used for strings. Example: Count of number of characters: > x = \"R course 24.07.2022\" > y = \"Number of participants: 25\" > nchar(x) #Count the Number of Characters in x [1] 19 > nchar(y) #Count the Number of Characters in y [1] 26 4 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 52,
+        "text": "Example: The nzchar(x) function takes the character vector x as a parameter. Its output is either TRUE or FALSE. > x = \"R course 24.07.2022\" > y = \"Number of participants: 25\" > nzchar(x) [1] TRUE > nzchar(y) [1] TRUE 5 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 53,
+        "text": "6 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 54,
+        "text": "Example: nzchar(x) > x = c(\"Apple\", \"Banana\", \"Cake\") > x [1] \"Apple\" \"Banana\" \"Cake\" > nzchar(x) [1] TRUE TRUE TRUE > y = c(\"Apple\", \"\", \"Cake\") > y [1] \"Apple\" \"\" \"Cake\" > nzchar(y) [1] TRUE FALSE TRUE 7 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 55,
+        "text": "Example: > x = c(\"Apple\", \"Banana\", \"Cake\") > nchar(x) [1] 5 6 4 > y = c(2, 4, 6) > nchar(y) [1] 1 1 1 > z = c(11, 222, 3333) > nchar(z) [1] 2 3 4 > z1 = c(1.1, 2.22, 3.333) > nchar(z1) [1] 3 4 5 8 Operations with Strings: Counting characters NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 56,
+        "text": "tolower(x) and toupper(x) Functions: tolower(x) and toupper(x) convert upper‐case characters in a character vector to lower‐case, or vice versa. Non‐alphabetic characters are left unchanged. 9 Operations with Strings: Lower and upper cases NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 57,
+        "text": "tolower(x) and toupper(x) Functions: Examples: > x = \"R course will start from 24.07.2022\" > toupper(x) [1] \"R COURSE WILL START FROM 24.07.2022\" > z = \"INDIAN INSTITUTE OF TECHNOLOGY\" > tolower(z) [1] \"indian institute of technology\" 10 Operations with Strings: Lower and upper cases NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 5,
+        "lesson_id": 1,
+        "page": 58,
+        "text": "11 Operations with Strings: Lower and upper cases NPTEL",
+        "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
     }
 ]

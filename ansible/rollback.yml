@@ -1,0 +1,43 @@
+---
+- name: Emergency Rollback NoteSense Services to Previous Working Version
+  hosts: all
+  become: false
+  vars:
+    previous_tag_file: "/opt/notesense/.prev_version"
+
+  tasks:
+    - name: Read previous stable version
+      slurp:
+        src: "{{ previous_tag_file }}"
+      register: prev_tag
+      ignore_errors: true
+
+    - name: Set fallback image tag
+      set_fact:
+        rollback_image: "{{ (prev_tag.content | b64decode | trim) if (prev_tag is success and prev_tag.content is defined) else 'notesense/backend:latest' }}"
+
+    - name: Log rollback initiation
+      debug:
+        msg: "Rolling back NoteSense backend to image: {{ rollback_image }}"
+
+    - name: Restore previous working backend container
+      docker_container:
+        name: notesense-backend
+        image: "{{ rollback_image }}"
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "8000:8000"
+
+    - name: Verify rollback health
+      uri:
+        url: "http://localhost:8000/health"
+        method: GET
+        status_code: 200
+      register: rb_health
+      retries: 5
+      delay: 4
+
+    - name: Confirm Rollback Success
+      debug:
+        msg: "NoteSense rollback completed successfully. System restored to functional state."
