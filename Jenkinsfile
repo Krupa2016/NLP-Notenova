@@ -19,6 +19,18 @@ pipeline {
             }
         }
 
+        stage('Install Backend Dependencies') {
+            steps {
+                echo 'Installing Python packages required by the backend and tests...'
+                sh '''
+                    cd backend
+                    python -m pip install --upgrade pip
+                    python -m pip install -r requirements.txt
+                    python -c "import fastapi, pytest, jwt, sentence_transformers, faiss; print('Backend dependencies verified')"
+                '''
+            }
+        }
+
         stage('Code Quality & Lint') {
             parallel {
                 stage('Backend Lint') {
@@ -32,7 +44,7 @@ pipeline {
                 }
                 stage('Frontend Lint') {
                     steps {
-                        echo 'Running Frontend dependency & build check...'
+                        echo 'Running frontend dependency check...'
                         sh '''
                             cd frontend
                             npm ci --prefer-offline || npm install
@@ -43,23 +55,24 @@ pipeline {
         }
 
         stage('Automated Backend Unit & Integration Tests') {
-            steps {
-                echo 'Executing PyTest test suite (RBAC, FAISS, Courses, Healthcheck)...'
-                sh '''
-                    cd backend
-                    python -m pytest tests/ --junitxml=test-reports/results.xml -v
-                '''
-            }
-            post {
-                always {
-                    junit allowEmptyResults: true, testResults: 'backend/test-reports/*.xml'
-                }
-            }
+    steps {
+        echo 'Installing backend dependencies and running tests...'
+        dir('backend') {
+            sh 'python -m pip install -r requirements.txt'
+            sh 'python -m pytest tests/ --junitxml=test-reports/results.xml -v'
         }
+    }
+    post {
+        always {
+            junit allowEmptyResults: true,
+                  testResults: 'backend/test-reports/results.xml'
+        }
+    }
+}
 
         stage('Build Docker Images') {
             steps {
-                echo 'Building production Docker images for Backend and Frontend...'
+                echo 'Building Docker images for backend and frontend...'
                 sh '''
                     docker build -t ${BACKEND_IMAGE} -t notesense/backend:latest ./backend
                     docker build -t ${FRONTEND_IMAGE} -t notesense/frontend:latest ./frontend
@@ -69,12 +82,13 @@ pipeline {
 
         stage('Container Health Check & Verification') {
             steps {
-                echo 'Spinning up test container to verify /health endpoint...'
+                echo 'Starting a test backend container and checking its health endpoint...'
                 sh '''
+                    docker rm -f notesense-test-backend 2>/dev/null || true
                     docker run -d --name notesense-test-backend -p 8001:8000 ${BACKEND_IMAGE}
-                    echo "Waiting for backend initialization and PyTorch model loading..."
+                    echo "Waiting for backend initialization and model loading..."
                     sleep 15
-                    curl -s -f http://localhost:8001/health || (docker logs notesense-test-backend && exit 1)
+                    curl -s -f http://localhost:8001/health || (docker logs notesense-test-backend && docker rm -f notesense-test-backend && exit 1)
                     echo "Backend container passed health check successfully."
                     docker rm -f notesense-test-backend
                 '''
@@ -83,9 +97,9 @@ pipeline {
 
         stage('Ansible Continuous Deployment') {
             steps {
-                echo 'Deploying NoteSense services via Ansible Configuration Management...'
+                echo 'Deploying NoteSense services via Ansible...'
                 sh '''
-                    ansible-playbook -i ansible/hosts.ini ansible/deploy.yml \
+                    ansible-playbook -i ansible/hosts.ini ansible/deploy.yml \\
                         --extra-vars "backend_image=${BACKEND_IMAGE} frontend_image=${FRONTEND_IMAGE}"
                 '''
             }
@@ -94,16 +108,18 @@ pipeline {
 
     post {
         success {
-            echo "CI/CD Pipeline Succeeded: NoteSense release ${IMAGE_TAG} successfully built, verified, and deployed."
+            echo "CI/CD Pipeline succeeded: NoteSense release ${IMAGE_TAG} was built and verified."
         }
         failure {
-            echo "Pipeline failed! Initiating automated rollback to previous stable deployment..."
+            echo "Pipeline failed. Attempting rollback if Ansible is installed and configured."
             sh '''
-                ansible-playbook -i ansible/hosts.ini ansible/rollback.yml || true
+                if command -v ansible-playbook >/dev/null 2>&1; then
+                    ansible-playbook -i ansible/hosts.ini ansible/rollback.yml || true
+                else
+                    echo "Ansible is not installed; skipping rollback command."
+                fi
             '''
-            mail to: 'devops-alerts@notesense.ai',
-                 subject: "NoteSense CI/CD Pipeline Failed - Build #${env.BUILD_NUMBER}",
-                 body: "The NoteSense build #${env.BUILD_NUMBER} failed during pipeline execution. Automatic rollback initiated."
+            echo 'Email notification skipped: configure SMTP in Jenkins before enabling mail notifications.'
         }
     }
 }
