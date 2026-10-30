@@ -70,15 +70,40 @@ pipeline {
     }
 }
 
-        stage('Build Docker Images') {
-            steps {
-                echo 'Building Docker images for backend and frontend...'
-                sh '''
-                    docker build -t ${BACKEND_IMAGE} -t notesense/backend:latest ./backend
-                    docker build -t ${FRONTEND_IMAGE} -t notesense/frontend:latest ./frontend
-                '''
-            }
-        }
+
+
+
+   
+stage('Verify Docker') {
+    steps {
+        sh '''
+            echo "Checking Docker from Jenkins..."
+
+            export PATH="$PATH:/c/Users/Acer/AppData/Local/Programs/DockerDesktop/resources/bin"
+
+            which docker
+            docker.exe --version
+            docker.exe info
+        '''
+    }
+}
+
+
+
+
+
+stage('Build Docker Images') {
+    steps {
+        echo 'Building Docker images for backend and frontend...'
+        sh '''
+            export PATH="$PATH:/c/Users/Acer/AppData/Local/Programs/DockerDesktop/resources/bin"
+
+            docker.exe build -t "${BACKEND_IMAGE}" -t notesense/backend:latest ./backend
+            docker.exe build -t "${FRONTEND_IMAGE}" -t notesense/frontend:latest ./frontend
+        '''
+    }
+}
+
 
         stage('Container Health Check & Verification') {
             steps {
