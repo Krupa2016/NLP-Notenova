@@ -10,7 +10,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_API_KEY=$AIzaSyBTo5gpMmYw6JG6tdZM39nUKuKLLc05kWM
       - JWT_SECRET=${JWT_SECRET:-notesense_secret_super_key_change_in_production_2026}
       - JWT_ALGORITHM=HS256
       - ACCESS_TOKEN_EXPIRE_MINUTES=1440

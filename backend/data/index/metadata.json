@@ -613,5 +613,558 @@
         "page": 58,
         "text": "11 Operations with Strings: Lower and upper cases NPTEL",
         "filename": "R PROGRAMMING NPTEL WEEK 9 NOTES.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 1,
+        "text": "Module-2 Word Level Analysis Prepared By Prof. Suja Jayachandran Reference : 1.Speech and Language Processing by Daniel Jurafsky,James and Martin",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 2,
+        "text": "Word: Fundamental building block of any language . Also called orthographic tokens(ie separated by white space). Exception Chinese, and Japanese languages are not separated by white space. Morphology:deals with syntax of complex words and parts of word called morphemes as well as what semantic property they convey.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 3,
+        "text": "• Tokenization: Tokenization is the process of tokenizing or splitting a string, or text into a list of tokens. One can think of tokens as parts like a word is a token in a sentence, and a sentence is a token in a paragraph. It is important because the meaning of the text can be interpreted through analysis of the words present in the text. Token: Non-unique words of a sentence Type: Unique words of a sentence. • Stopword Removal: Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 3,
+        "text": "Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply to remove the words that occur commonly across all the documents in the corpus. Typically, articles and pronouns are generally classified as stop words. These words have no significance in some of the NLP tasks like information retrieval and classification.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 4,
+        "text": "• Normalization is the process of converting a token into its base form. • It helps in : Reducing the number of unique tokens present in the text. Reducing variation of words in the text. Removing redundant information. • Stemming: It is an elementary rule-based process for removing inflectional forms from a token and output are the stem/root of the word. • Eg: “Laughing”, “Laughed” , “Laughs” , “Laugh” will all become “laugh” • It can produce words that are not part of the dictionary. Eg: “His teams are not winning”. After stemming: “Hi”, “team”, “are”, “not”, “winn”",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 4,
+        "text": "not part of the dictionary. Eg: “His teams are not winning”. After stemming: “Hi”, “team”, “are”, “not”, “winn”",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 5,
+        "text": "• Lemmatization: It is a systematic step-by-step process for removing inflection forms of a word. • It makes use of vocabulary, word structure, part of speech tags, and grammar relation. • Output of lemmatization is the root word called a lemma. • E.g. “Running”, ”Run”, and “Ran” will be Run.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 6,
+        "text": "Types of Stemming Algorithm • 1. Porter Stemmer – PorterStemmer() • Martin Porter invented the Porter Stemmer or Porter algorithm in 1980. Five steps of word reduction are used in the method, each with its own set of mapping rules. Porter Stemmer is the original stemmer and is renowned for its ease of use and rapidity. Frequently, the resultant stem is a shorter word with the same root meaning. • PorterStemmer() is a module in NLTK that implements the Porter Stemming technique. • 2. Snowball Stemmer – SnowballStemmer() • Martin Porter also created Snowball Stemmer. The method utilized in this",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 6,
+        "text": "Stemming technique. • 2. Snowball Stemmer – SnowballStemmer() • Martin Porter also created Snowball Stemmer. The method utilized in this instance is more precise and is referred to as “English Stemmer” or “Porter2 Stemmer.” It is somewhat faster and more logical than the original Porter Stemmer. • SnowballStemmer() is a module in NLTK that implements the Snowball stemming technique. • 3. Lancaster Stemmer – LancasterStemmer() • Lancaster Stemmer is straightforward, although it often produces results with excessive stemming. Over-stemming renders stems non-linguistic or meaningless. • LancasterStemmer() is a module in NLTK that implements the Lancaster stemming technique. • 4. Regexp",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 6,
+        "text": "stems non-linguistic or meaningless. • LancasterStemmer() is a module in NLTK that implements the Lancaster stemming technique. • 4. Regexp Stemmer – RegexpStemmer() • Regex stemmer identifies morphological affixes using regular expressions. Substrings matching the regular expressions will be discarded. • RegexpStemmer() is a module in NLTK that implements the Regex stemming technique.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "• Regular Expression • A regular expression (RE) is a language for specifying text search strings. RE helps us to match or find other strings or sets of strings, using a specialized syntax held in a pattern. • Regular expression search requires a pattern that we want to search for, and a corpus of texts to search through. • A regular expression search CORPUS function will search through the corpus returning all texts that contain the pattern • Properties of Regular Expressions American Mathematician Stephen Cole Kleene formalized the Regular Expression language. RE is a formula in a special language,",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "Regular Expressions American Mathematician Stephen Cole Kleene formalized the Regular Expression language. RE is a formula in a special language, which can be used for specifying simple classes of strings, a sequence of symbols. In other words, we can say that RE is an algebraic notation for characterizing a set of strings. Regular expression requires two things, one is the pattern that we wish to search and other is a corpus of text from which we need to search.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 8,
+        "text": "Searching for a particular word",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 9,
+        "text": "• Searching a number",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 10,
+        "text": "• Searching passages with number",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 11,
+        "text": "• Named entity recognition",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 12,
+        "text": "RE:Build an FSA that modeled the subpart of English dealing with amounts of money. Such a formal language would model the subset of English consisting of phrases like ten cents, three dollars, one dollar thirty-five cents and so on",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 13,
+        "text": "Porter’s Algorithm • Porter (1980) algorithm we define a consonant as a letter other than A, E, I, O, and U, and other than Y preceded by a consonant. Any other letter is a vowel. (This is of course just an orthographic approximation.) • Let c denote a consonant and v denote a vowel. C will stand for a string of one or more consonants, and V for a string of one or more vowels. • Any written English word or word part can be represented by the following regular expression (where the parentheses () are used to mark optional",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 13,
+        "text": "or word part can be represented by the following regular expression (where the parentheses () are used to mark optional elements): (C)(VC) m (V ) • For example the word troubles maps to the following sequence: troubles C V C VC with no final V. We call the Kleene operator m the measure of any word or word part; the measure correlates very roughly with the number of syllables in the word or word part.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 14,
+        "text": "• Steps:",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 16,
+        "text": "Morphological Parsing",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 17,
+        "text": "• Morphology-to understand how a word is formed • Morphological Parsing-It is used to find morphemes form a word. • Morphemes contain Stem(Root word) and Affix(Prefix(e.g. reform),infix(e.g. passersby) and suffix(e.g. nationalist). • Morphological Parser decides the order of words: Lexicons-Stem,affix,part of speech(noun,adjective,verb) Morphotactics:decides which morphemes should come based on rules. Orthographic rules: lady+s=ladys(wrong) lady+ies=ladies(true)",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 18,
+        "text": "• Types of Morphemes: 1. Free Morphemes: Independent word having its own meaning(e.g. camera) a) Lexical Morphemes:Adjective/Noun/Verb/Picture word(e.g. Yellow) b) Grammatical Morphemes:Conjunction(e.g. and, or) 2. Bound Morphemes: No meaning of its own.(E.g. –ing (running)) a) Inflectional Morphemes:Words when combined with free morphemes it will not change the part of speech.IT will be always added as suffix. Example: cat + s=cats b) Derivational Morphemes:Words when combined with free morphemes it will change the part of speech. Example: danger+ ous= dangerous 3. Allomorphes: antonym Happy x unhappy Rational x irrational Possible x impossible",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 18,
+        "text": "Allomorphes: antonym Happy x unhappy Rational x irrational Possible x impossible",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 19,
+        "text": "• Finite State Morphological Parsing",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 21,
+        "text": "Morphological Parsing with Finite-State Transducers(Pg 102 Jurafsky ebook) • Two-level morphology, first proposed by Koskenniemi (1983). • Two level morphology represents a word as a correspondence between a lexical level, which represents a simple concatenation of morphemes making up a word, and the surface level, which represents the actual spelling of the final word. • Morphological parsing is implemented by building mapping rules that map letter sequences like cats on the surface level into morpheme and features sequences like cat +N +PL on the lexical level. Figure shows these two levels for the word cats. Note that the lexical level",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 21,
+        "text": "+N +PL on the lexical level. Figure shows these two levels for the word cats. Note that the lexical level has the stem for a word, followed by the morphological information +N +PL which tells us that cats is a plural noun.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 22,
+        "text": "• The automaton that we use for performing the mapping between these two levels is the finite-state transducer or FST. • A transducer maps between FST one set of symbols and another; a finite-state transducer does this via a finite automaton. • Thus we usually visualize an FST as a two-tape automaton which recognizes or generates pairs of strings. • The FST thus has a more general function than an FSA; where an FSA defines a formal language by defining a set of strings, an FST defines a relation between sets of strings. This relates to another view of an",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 22,
+        "text": "a set of strings, an FST defines a relation between sets of strings. This relates to another view of an FST; as a machine that reads one string and generates another",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 23,
+        "text": "That is, c maps to itself, as do a and t, while the morphological feature +N (recall that this means ‘noun’) maps to nothing (ε), and the feature +PL (meaning ‘plural’) maps to ˆs. The symbol ˆ indicates a morpheme boundary, while the symbol # indicates a word boundary.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 24,
+        "text": "Orthographic Rules and Finite-State Transducers",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 25,
+        "text": "Language Model • Language modeling is the way of determining the probability of any sequence of words. Language modeling is used in a wide variety of applications such as Speech Recognition, Spam filtering, etc. • An N-gram language model predicts the probability of a given N-gram within any sequence of words in the language. A good N-gram model can predict the next word in the sentence i.e the value of p(w|h). • Two types of Language Modelings: • Statistical Language Modelings: Statistical Language Modeling, or Language Modeling, is the development of probabilistic models that are able to predict the next",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 25,
+        "text": "Modelings: Statistical Language Modeling, or Language Modeling, is the development of probabilistic models that are able to predict the next word in the sequence given the words that precede. Examples such as N-gram language modeling. • Neural Language Modelings: Neural network methods are achieving better results than classical methods both on standalone language models and when models are incorporated into larger models on challenging tasks like speech recognition and machine translation. A way of performing a neural language model is through word embeddings.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 25,
+        "text": "through word embeddings.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 26,
+        "text": "• N-gram • N-gram can be defined as the contiguous sequence of n items from a given sample of text or speech. The items can be letters, words, or base pairs according to the application. The N-grams typically are collected from a text or speech corpus (A long text dataset). • N-gram Language Model: • An N-gram language model predicts the probability of a given N-gram within any sequence of words in the language. A good N-gram model can predict the next word in the sentence i.e the value of p(w|h) • Example of N-gram such as unigram (“This”, “article”,",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 26,
+        "text": "the next word in the sentence i.e the value of p(w|h) • Example of N-gram such as unigram (“This”, “article”, “is”, “on”, “NLP”) or bi-gram (‘This article’, ‘article is’, ‘is on’,’on NLP’) • Perplexity: Perplexity is a measure of how good a probability distribution predicts a sample. It can be understood as a measure of uncertainty. • Perplexity=P(S) raise to (-1/n)",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 27,
+        "text": "• Maximum Likelihood Estimate: It is the method of estimating the parameter of an assumed probability distribution,given some observed data.It is the value that makes the observed data the “most probable”. P(Wi|Wi-1)=Count(Wi-1,Wi)/Count(Wi-1) • Laplace Smoothening:Also called Add one smoothening.It is a smoothening technique that helps to tackle the problem of zero probability of a word in the text.When a particular bigram never occurred in our corpus data,then we get probability zero for that word.And when probability of any word is zero the overall effect is zero,which waste the contribution of other words.To avoid this we can use Laplace smoothening.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 27,
+        "text": "zero the overall effect is zero,which waste the contribution of other words.To avoid this we can use Laplace smoothening.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 6,
+        "lesson_id": 1,
+        "page": 28,
+        "text": "• Practicenumerical based on N-gram model.",
+        "filename": "Module-2-Morphological Analysis.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 1,
+        "text": "Module 1 Introduction to NLP Prepared By Prof. Suja Jayachandran Reference : 1.Speech and Language Processing by Daniel Jurafsky,James and Martin 2. https://datascience.foundation.com 3. https://www.ibm.com/demos/live/natural-language-understanding/self- service/home",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 2,
+        "text": "What is NLP?? • NLP is a subfield of computer science and artificial intelligence concerned with interactions between computers and human (natural) languages. • It is used to apply machine learning algorithms to text and speech. • It is the technique that enables the machine to interpret and understand the way humans communicate. Why NLP?? • 80% of total generated data is Unstructured • To process Unstructured data we require NLP Expertise",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 4,
+        "text": "Goals of NLP • Fundamental Goal: Deep Understanding of broad language. • Engineering Goal: Design, implement and test systems that process natural language for practical application.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 5,
+        "text": "Applications of NLP",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 6,
+        "text": "History of NLP",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "1949 • Weaver’s memorandum (Shannon and Weaver, 1949) brought the idea of the first computer-based application related to natural language: machine translation (MT). • It subsequently inspired many projects, notably the Georgetown experiment (Dostert, 1955), a joint project between IBM and Georgetown University that successfully demonstrated the machine translation of more than 60 Russian sentences into English. • The researchers accomplished this feat by using hand- coded language rules, but the system failed to scale up to general translation. • most systems used dictionary-lookup of appropriate words for translation and reordered the words after translation to fit the word-order rules",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 7,
+        "text": "most systems used dictionary-lookup of appropriate words for translation and reordered the words after translation to fit the word-order rules of the target language.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 8,
+        "text": "1957-60 • introduce the idea of generative grammar (Chomsky, 1957), a rule-based system of syntactic structures that brought insight into how mainstream linguistics could help machine translation. • Theoretical work in the late 1960s and early 1970s mainly focused on how to represent meaning. • Researchers developed new theories of grammar that were computationally tractable for the first time, particularly after the introduction of transformational generative grammars (Chomsky, 1965), which were criticized for being too syntactically oriented and not lending themselves easily to computational implementation.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 8,
+        "text": "themselves easily to computational implementation.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 9,
+        "text": "1970 • The 1970s brought new ideas into NLP, such as building conceptual ontologies which structured real-world information into computer-understandable data. • Examples are MARGIE (Schank and Abelson, 1975), TaleSpin (Meehan, 1976), QUALM (Lehnert, 1977), SAM (Cullingford, 1978), PAM (Schank and Wilensky, 1978) and Politics (Carbonell, 1979).",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 10,
+        "text": "1980 • In the 1980s, many significant problems in NLP were addressed using symbolic approaches (Charniak, 1983; Dyer, 1983; Riesbeck and Martin, 1986; Grosz et al., 1987; Hirst, 1987), i.e., complex hard-coded rules and grammars to parse language. • Practically, text was segmented into meaningless tokens (words and punctuation). • Representations were then manually created by assigning meanings to these tokens and their mutual relationships through well-understood knowledge representation schemes and associated algorithms. • Those representations were eventually used to perform deep analysis of linguistic phenomena.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 10,
+        "text": "perform deep analysis of linguistic phenomena.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 11,
+        "text": "1990 • Statistical models came as a revolution in NLP (Bahl et al., 1989; Brill et al., 1990; Chitrao and Grishman, 1990; Brown et al., 1991), replacing most natural language processing systems based on complex sets of hand-written rules. • This progress was the result of both the steady increase of computational power, and the shift to machine learning algorithms. • While some of the earliest-used machine learning algorithms, such as decision trees (Tanaka, 1994; Allmuallim et al., 1994), produced systems similar in performance to the old school hand-written rules, statistical models broke through the complexity barrier of hand-coded rules",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 11,
+        "text": "systems similar in performance to the old school hand-written rules, statistical models broke through the complexity barrier of hand-coded rules by creating them through automatic learning, which led research to increasingly focus on these models. • At the time, these statistical models were capable of making soft, probabilistic decisions.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 12,
+        "text": "Language, Knowledge & Grammar • Language is the expression of ideas by means of speech sounds combined into words. A language is a system of communication that consists of a set of sounds and written symbols that are used by the people of a particular country or region for talking or writing. • Knowledge deals with how words can be put together to form correct sentences. It also determines what structural role each word plays in the sentence and what phrases are subparts of what other phrases. It concerns the meanings of the words and sentences. • Grammar is defined",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 12,
+        "text": "phrases are subparts of what other phrases. It concerns the meanings of the words and sentences. • Grammar is defined as the rules for forming well-structured sentences. Grammar denotes syntactical rules that are used for conversation in natural languages.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 13,
+        "text": "Knowledge of Language • Phonetics and Phonology • Morphology • Syntax • Semantics • Pragmatics • Disclosure",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 14,
+        "text": "Phonetics and Phonology: The study of linguistic sounds. Morphology: The study of the meaningful components of words. Syntax: The structural relationships between words. Semantics: Study of meaning. Pragmatics: Study of how language is used to accomplish goals. Disclosure: Study of linguistic units larger than a single utterance. Knowledge of Language",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 18,
+        "text": "• Ambiguity: • Lexical Ambiguity: It occurs when a word carries a different sense, i.e. having more than one meaning and the sentence in which it is contained can be interpreted differently depending on its correct sense. Lexical ambiguity can be resolved to some extent using parts- of-speech tagging techniques.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 19,
+        "text": "Syntactical Ambiguity means when we see more than one meaning in a sequence of words. It is also termed as grammatical ambiguity. Referential Ambiguity: Very often a text mentions as an entity (something/someone), and then refers to it again, possibly in a different sentence, using another word. Pronoun causes ambiguity when it is not clear which noun it is referring to. Example: The boy told his father about the theft. He was very upset. He is referentially ambiguous because it can refer to both the boy and the father.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 19,
+        "text": "can refer to both the boy and the father.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 20,
+        "text": "Examples of Ambiguity Ambiguity Type Definition Example 1 Example 2 1. Lexical Ambiguity A word has multiple meanings. The fisherman sat on the bank. (bank = river bank or financial bank) The crane is flying. (crane = bird or construction machine) 2. Syntactic Ambiguity A sentence can have more than one grammatical structure. I saw the man with the telescope. (I used the telescope OR the man had the telescope.) Visiting relatives can be boring. (Visiting relatives is boring OR relatives who are visiting are boring.) 3. Semantic Ambiguity The sentence has multiple meanings despite having a fixed grammatical structure.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 20,
+        "text": "relatives who are visiting are boring.) 3. Semantic Ambiguity The sentence has multiple meanings despite having a fixed grammatical structure. Every student read a book. (Same book or different books.) John loves his brother more than Peter. (More than Peter loves his brother OR more than John loves Peter.) 4. Pragmatic Ambiguity The intended meaning depends on context, speaker intention, or world knowledge. Can you open the window? (Question about ability OR polite request.) It's cold in here. (Observation OR indirect request to close the window/turn off the AC.) 5. Referential Ambiguity It is unclear which person, object, or entity",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 20,
+        "text": "indirect request to close the window/turn off the AC.) 5. Referential Ambiguity It is unclear which person, object, or entity a pronoun or noun phrase refers to. John told David that he won the prize. (\"He\" could refer to John or David.) Sara met Priya after she finished the exam. (\"She\" could refer to Sara or Priya.)",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 23,
+        "text": "Natural Language Generation (NLG) • It is the process of producing meaningful phrases and sentences in the form of natural language from some internal representation. • It involves − • Text planning − It includes retrieving the relevant content from the knowledge base. • Sentence planning − It includes choosing required words, forming meaningful phrases, and setting the tone of the sentence. • Text Realization − It is mapping sentence plan into sentence structure.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 24,
+        "text": "Generic NLP System",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 26,
+        "text": "• Phonological Analysis: This level is applied only if the text origin is a speech. It deals with the interpretation of speech sounds within and across words. Speech sound might give a big hint about the meaning of a word or a sentence. • Morphological Analysis: Deals with understanding distinct words according to their morphemes ( the smallest units of meanings) . • Example: “unhappiness ”. It can be broken down into three morphemes (prefix, stem, and suffix), with each conveying some form of meaning: • the prefix un- refers to “not being” • the suffix -ness refers to “a",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 26,
+        "text": "conveying some form of meaning: • the prefix un- refers to “not being” • the suffix -ness refers to “a state of being”. • The stem- happy is considered a free morpheme since it is a “word” in its own right. • Bound morphemes (prefixes and suffixes) require a free morpheme to which they can be attached, and can therefore not appear as a “word” on their own.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 27,
+        "text": "Lexical Analysis: It involves identifying and analyzing the structure of words. Lexicon of a language means the collection of words and phrases in a language. • Lexical analysis is dividing the whole chunk of text into paragraphs, sentences, and words. • The most common lexicon normalization practices are Stemming: 1. Stemming: Stemming is a rudimentary rule-based process of stripping the suffixes (“ing”, “ly”, “es”, “s” etc) from a word. 2. Lemmatization: Lemmatization, is an organized & step by step procedure of obtaining the root form of the word, it makes use of vocabulary (dictionary importance of words) and morphological analysis",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 27,
+        "text": "of obtaining the root form of the word, it makes use of vocabulary (dictionary importance of words) and morphological analysis (word structure and grammar relations)",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 28,
+        "text": "• Syntactic Analysis: Deals with analyzing the words of a sentence so as to uncover the grammatical structure of the sentence. E.g.. \"Colourless green idea.\" This would be rejected by the Symantec analysis as colorless here; green doesn't make any sense. • Semantic Analysis: Determines the possible meanings of a sentence by focusing on the interactions among word-level meanings in the sentence. Some people may think it’s the level that determines the meaning, but actually all the level do. The semantic analyzer disregards sentence . Example:“hot ice-cream”. • Discourse Integration: Focuses on the properties of the text as a whole",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 28,
+        "text": "semantic analyzer disregards sentence . Example:“hot ice-cream”. • Discourse Integration: Focuses on the properties of the text as a whole that convey meaning by making connections between component sentences. It means a sense of the context. The meaning of any single sentence which depends upon that sentences. It also considers the meaning of the following sentence. For example, the word \"that\" in the sentence \"He wanted that\" depends upon the prior discourse context. Example: Ram and Shyam were playing. After few hours He left the game after sometime.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 28,
+        "text": "few hours He left the game after sometime.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 29,
+        "text": "• Pragmatic Analysis: Explains how extra meaning is read into texts without actually being encoded in them. This requires much world knowledge, including the understanding of intentions, plans, and goals. Consider the following two sentences: • Example: • The city police refused the demonstrators a permit because they feared violence. • The city police refused the demonstrators a permit because they advocated revolution. • The meaning of “they” in the 2 sentences is different. In order to figure out the difference, world knowledge in knowledge bases and inference modules should be utilized. • Pragmatic analysis helps users to discover this",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 29,
+        "text": "difference, world knowledge in knowledge bases and inference modules should be utilized. • Pragmatic analysis helps users to discover this intended effect by applying a set of rules that characterize cooperative dialogues. E.g., \"close the window?\" should be interpreted as a request instead of an order.",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 30,
+        "text": "Widely used NLP Libraries https://www.ibm.com/demos/live/natural-language-understanding/self-service/home",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 32,
+        "text": "• Statistical approach to handle ambiguity: 1.Probabilistic model 2.Part of speech • Rule-Based • Markov Model • Maximum entropy • HMM-based tagger • 3.Machine Learning Approach",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 40,
+        "text": "Text Pre Processing • It is a process of cleaning and preparing the text. • NLTK and RE python libraries are used. • Techniques are: 1. Removing HTML tags 2. Remove White spaces 3. Accented character 4. Expand Contractions 5. Remove special character 6. Convert all words into Lower Case 7. Remove Punctuation mark 8. Remove words and digits containing digits 9. Remove Stop words 10. Stemming and Lemmatization 11. Script Validation",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 41,
+        "text": "• Tokenization: Tokenization is the process of tokenizing or splitting a string, or text into a list of tokens. One can think of tokens as parts like a word is a token in a sentence, and a sentence is a token in a paragraph. It is important because the meaning of the text can be interpreted through analysis of the words present in the text. ➢Token: Non-unique words of a sentence ➢Type: Unique words of a sentence. • Stopword Removal: Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply",
+        "filename": "Module 1-Introduction.pdf"
+    },
+    {
+        "course_id": 1,
+        "lesson_id": 1,
+        "page": 41,
+        "text": "Stop word removal is one of the most commonly used preprocessing steps across different NLP applications. The idea is simply to remove the words that occur commonly across all the documents in the corpus. Typically, articles and pronouns are generally classified as stop words. These words have no significance in some of the NLP tasks like information retrieval and classification.",
+        "filename": "Module 1-Introduction.pdf"
     }
 ]
